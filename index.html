@@ -4,13 +4,11 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="api.css">
+    <link rel="stylesheet" type="text/css" href="queries.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<!--    <div>-->
-<!--        <input type="text" placeholder="Enter city" onblur="getVal()">-->
-<!--    </div>-->
 <div class="container">
     <div class="card">
         <h2><i class="fa fa-map-marker"></i><span id="location"></span></h2>
@@ -51,6 +49,7 @@
     var val;
     function fun1(){
         val=document.getElementById('input1').value;
+        flag=0;
         weather();
     }
     // var val = prompt("enter a city/country name");
