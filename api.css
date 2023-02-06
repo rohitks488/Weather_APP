@@ -48,3 +48,44 @@ button.refresh:hover{
     box-shadow: inset 10px 4px 10px #252525, inset 5px 5px 18px #4a4a4a;
 
 }
+
+button.curLoca{
+    display: block;
+    /*width: 100px;*/
+    margin: 10px auto;
+    background: transparent;
+    border: 0;
+    color: #9c9c9d;
+    padding: 5px;
+    /*font-size: 30px;*/
+    /*height: 100px;*/
+    border-radius: 5px 10px;
+    box-shadow: 10px 4px 10px #252525, 5px 5px 18px #4a4a4a;
+}
+button.curLoca:hover{
+    box-shadow: inset 10px 4px 10px #252525, inset 5px 5px 18px #4a4a4a;
+
+}
+button.cityName{
+    /*display: block;*/
+    /*width: 100px;*/
+    /*margin: 10px auto;*/
+    background: transparent;
+    border: 0;
+    color: #9c9c9d;
+    padding: 5px 10px;
+    /*font-size: 30px;*/
+    /*height: 100px;*/
+    border-radius: 5px;
+    box-shadow: 10px 4px 10px #252525, 5px 5px 18px #606060;
+}
+button.cityName:hover{
+    box-shadow: inset 10px 4px 10px #252525, inset 5px 5px 18px #4a4a4a;
+
+}
+#input1{
+    background-color: #b1b1b2;
+    border-radius:5px ;
+    width: 120px;
+    padding: 2px;
+}

@@ -11,23 +11,59 @@
 <!--    <div>-->
 <!--        <input type="text" placeholder="Enter city" onblur="getVal()">-->
 <!--    </div>-->
-    <div class="container">
-        <div class="card">
-            <h2><i class="fa fa-map-marker"></i><span id="location"></span> </h2>
-            <h6 id="weather"></h6>
-            <h4><span id="temp"></span><sup>o</sup>C </h4>
-            <img src="" id="icon">
-            <button onclick="window.location.reload()" class="refresh"><i class="fa fa-refresh"></i></button>
-        </div>
+<div class="container">
+    <div class="card">
+        <h2><i class="fa fa-map-marker"></i><span id="location"></span></h2>
+        <h6 id="weather"></h6>
+        <h4><span id="temp"></span><sup>o</sup>C </h4>
+        <img src="" id="icon">
+        <br>
+        <input type="text" id="input1" placeholder="city name" >
+        <button onclick="fun1()" class="cityName">submit</button>
+        <button class="curLoca" onclick="getLocation()">current location</button>
+        <p id="demo"></p>
+        <button onclick="window.location.reload()" class="refresh"><i class="fa fa-refresh"></i></button>
     </div>
+</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
         crossorigin="anonymous"></script>
 <script>
-    var val=prompt("enter a city/country name");
-    weather();
-    function weather(){
-        link = "https://api.openweathermap.org/data/2.5/weather?q="+val+"&appid=5896de008b21d003c4219d15900f635f";
+    var long;
+    var lat;
+    var flag = 0;
+    console.log(flag);
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+            flag = 1;
+        } else {
+            prompt("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        weather();
+
+    }
+    var val;
+    function fun1(){
+        val=document.getElementById('input1').value;
+        weather();
+    }
+    // var val = prompt("enter a city/country name");
+    // weather();
+    function weather() {
+        console.log(flag);
+        if(flag==0) {
+            link = "https://api.openweathermap.org/data/2.5/weather?q=" + val + "&appid=5896de008b21d003c4219d15900f635f";
+        }
+        else {
+        console.log("flag=1");
+        link = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=5896de008b21d003c4219d15900f635f"
+        }
         var request = new XMLHttpRequest();
         request.open('GET', link, true)
         request.onload = function () {
